@@ -1,13 +1,15 @@
 /** @format */
 const express = require("express");
 const dotenv = require("dotenv").config();
+const colors = require('colors')
 const port = process.env.port ||  5000;
 const {errorHandler} = require('./middleware/errorMiddleware')
+const connectDB = require('./config/db')
 const app = express();
-
 app.use(express.json());
 app.use(express.urlencoded({extended:false}))
 
+connectDB()
 app.use('/api/goals' , require('./routes/goalRoutes'))
 // app.get('/api/goals', (req, res)=>{
 //     // res.send('Get Goals')

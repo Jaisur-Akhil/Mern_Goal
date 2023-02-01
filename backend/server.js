@@ -11,6 +11,7 @@ app.use(express.urlencoded({extended:false}))
 
 connectDB()
 app.use('/api/goals' , require('./routes/goalRoutes'))
+app.use('/api/users' , require('./routes/userRoutes'))
 // app.get('/api/goals', (req, res)=>{
 //     // res.send('Get Goals')
 //     res.status(200).json({message:'Get Goals'})
